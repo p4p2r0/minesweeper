@@ -1,16 +1,13 @@
 # minesweeper
 
-Minesweeper for the browser, with an online leaderboard that verifies every
-score it publishes.
+Minesweeper for the browser.
 
-**[Play it](https://minesweeper-6y8.pages.dev)**
+**[Visit the game](https://minesweeper-6y8.pages.dev)**
 
-## Why
-
-Wanted a Minesweeper leaderboard where a fast time is actually true, not just
-whatever the client claims — and an excuse to build a server-authoritative
-replay system that verifies that trustlessly, without adding a network round
-trip to every click.
+> The site currently runs on a shared `*.pages.dev` subdomain, which some ISPs
+> block outright, independent of the content behind it. If it doesn't load, a
+> VPN (e.g. Cloudflare WARP) should get you through — this will no longer be
+> necessary once the project moves to its own domain.
 
 ## How it works
 
