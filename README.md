@@ -1,8 +1,6 @@
 # Minesweeper
 
-Minesweeper for the browser — offline-capable, ranked, and built as a small
-monorepo so the same rules engine drives the web client, the leaderboard
-server, and its own tests.
+A modern Minesweeper game.
 
 **[Play it](https://minesweeper-6y8.pages.dev)**
 
@@ -16,7 +14,7 @@ server, and its own tests.
 Uncover every square that isn't a mine; click a mine and it's game over. A
 revealed number tells you exactly how many mines are touching it.
 
-- **Flag mode is on by default**: tap a covered square to flag it, long-press
+- Flag mode is on by default: tap a covered square to flag it, long-press
   (or right-click on a laptop) to reveal it instead. A stray tap only costs an
   undo-able flag rather than risking a mine.
 - Prefer the classic scheme? Switch it off from the flag icon above the
@@ -47,7 +45,7 @@ what makes score verification possible: a game the client saw as a win
 replays as a win on the server by construction, not by trusting the client's
 word for it.
 
-## How scores are verified
+## Score verification
 
 The hard problem with a leaderboard for a game that has to feel instant: the
 client must know where the mines are to render the board, and anything the
@@ -128,37 +126,6 @@ URL or a cookie.
   grids solid black mid-gesture during a viewport-level zoom.
 - **An in-app admin panel** (closed to normal players) for moderating the
   leaderboard and player accounts.
-
-## Getting started
-
-Requires Node 20+.
-
-```bash
-npm install
-
-# web client, at localhost:5173
-npm run dev --workspace @p4p2r0/minesweeper-web
-
-# leaderboard API, via Wrangler's local dev server
-npm run dev --workspace @p4p2r0/minesweeper-api
-
-# engine tests
-npm test --workspace @p4p2r0/minesweeper-core
-```
-
-The web client works fully offline with no API running — dealing a board
-without a reachable server just falls back to unranked local play (see
-"Offline-first play" above). Point it at a real API with `VITE_API_URL`.
-
-Deploys: `npm run deploy` in `apps/web` (Cloudflare Pages) or `apps/api`
-(Cloudflare Workers + D1) — both require their own `wrangler` auth and, for
-the API, a provisioned D1 database (`npm run db:init`).
-
-## Known issues
-
-- **`*.pages.dev` ISP blocking.** See the note at the top of this file — some
-  ISPs block the shared `pages.dev` domain outright. Resolves once the
-  project has its own domain.
 
 ## License
 
